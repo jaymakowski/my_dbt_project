@@ -5,10 +5,11 @@ WITH session_data AS (
     MIN(event_timestamp) AS session_start_time,
     MAX(event_timestamp) AS session_end_time,
     COUNT(DISTINCT event_name) AS event_count,
+    COUNT(CASE WHEN event_name = 'page_view' THEN 1 END) AS pages_viewed,
     MAX(browser) AS browser_used,
-    MAX(traffic_source.medium) AS traffic_medium,
-    MAX(traffic_source.source) AS traffic_source,
-    MAX(traffic_source.name) AS traffic_name
+    MAX(traffic_medium) AS traffic_medium,
+    MAX(traffic_source) AS traffic_source,
+    MAX(traffic_name) AS traffic_name
   FROM {{ ref('stg_google_analytics__event_flattened') }}
   WHERE ga_session_id IS NOT NULL
   GROUP BY user_pseudo_id, ga_session_id
