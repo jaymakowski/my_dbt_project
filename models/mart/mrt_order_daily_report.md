@@ -1,5 +1,11 @@
 {% docs mrt_order_daily_report %}
 
-This model generates a daily summary of orders, including metrics such as total orders, average distinct items per order, average feedback score, and average order amount. The results are grouped by `report_date`, `account_manager`, and `state`, allowing analysis of performance by account manager and region.
+This model generates a daily summary of orders, including the following metrics:
+- ** Total orders. **
+- ** Average distinct items per order. ** 
+- ** Average feedback score. **
+- ** Average order amount. **
+
+This allows for analysis of performance by account manager and region.
 
 {% enddocs %}
