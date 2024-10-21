@@ -38,12 +38,6 @@ models:
             - not_null
       - name: order_id
         description: "Foreign key linking the order item to the corresponding order."
-      - name: price
-        description: "The price of a single item in the order."
-      - name: quantity
-        description: "The quantity of the item ordered."
-      - name: shipping_cost
-        description: "The cost of shipping for this item."
       - name: total_order_item_amount
         description: "The total amount for this order item, calculated as (price * quantity) + shipping_cost."
 
@@ -57,8 +51,6 @@ models:
             - not_null
       - name: order_id
         description: "Foreign key linking the payment to the corresponding order."
-      - name: payment_sequential
-        description: "The sequential number of the payment for an order."
 
   - name: stg_sales_database__product
     description: "This table stores details of products available for sale, primarily focusing on information about the product's volume and size."
