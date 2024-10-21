@@ -11,6 +11,10 @@ models:
             - not_null
       - name: order_id
         description: "Foreign key linking the feedback to the corresponding order."
+        tests:
+          - relationships:
+              to: ref('stg_sales_database__order')
+              field: order_id
 
   - name: stg_sales_database__order
     description: "This model contains information about orders placed by users, including the status of each order."
@@ -27,6 +31,10 @@ models:
               values: ['created', 'shipped', 'approved', 'canceled', 'invoiced', 'delivered', 'processing', 'unavailable']
       - name: user_id
         description: "Foreign key linking the order to the user who placed it."
+        tests:
+          - relationships:
+              to: ref('stg_sales_database__user')
+              field: user_id
 
   - name: stg_sales_database__order_item
     description: "This model contains information about each item included in an order, including its price, quantity, and shipping cost."
@@ -38,6 +46,10 @@ models:
             - not_null
       - name: order_id
         description: "Foreign key linking the order item to the corresponding order."
+        tests:
+          - relationships:
+              to: ref('stg_sales_database__order')
+              field: order_id
       - name: total_order_item_amount
         description: "The total amount for this order item, calculated as (price * quantity) + shipping_cost."
 
@@ -51,6 +63,10 @@ models:
             - not_null
       - name: order_id
         description: "Foreign key linking the payment to the corresponding order."
+        tests:
+          - relationships:
+              to: ref('stg_sales_database__order')
+              field: order_id
 
   - name: stg_sales_database__product
     description: "This model contains details of products available for sale, primarily focusing on information about the product's volume and size."
