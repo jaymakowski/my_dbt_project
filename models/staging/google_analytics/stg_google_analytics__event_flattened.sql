@@ -1,5 +1,6 @@
  {{ config(
-    cluster_by=['event_name']
+    cluster_by= 'event_name',
+    materialized = 'table'
 ) }}
  
  SELECT
