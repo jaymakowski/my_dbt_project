@@ -1,7 +1,7 @@
 WITH  orders_summary AS (
 SELECT
  o.user_id,
- SUM((oi.unit_price * item_quantity) + oi.shipping_cost) AS total_amount_spent,
+ SUM(oi.total_order_item_amount) AS total_amount_spent,
  SUM(oi.item_quantity) as total_items,
  COUNT(distinct product_id) as total_distinct_items,
  COUNT(DISTINCT o.order_id) AS total_orders
